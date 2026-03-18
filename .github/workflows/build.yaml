@@ -12,8 +12,22 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # Required for git push
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Fix Node.js 20 deprecation warning
 
     steps:
+      - name: Check secrets
+        run: |
+          if [ -z "${{ secrets.ACCESS_TOKEN }}" ]; then
+            echo "::error::ACCESS_TOKEN secret is missing. Add it in Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          if [ -z "${{ secrets.USER_NAME }}" ]; then
+            echo "::error::USER_NAME secret is missing. Add it in Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          echo "Secrets configured ✓"
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
