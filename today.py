@@ -1,4 +1,5 @@
 import datetime
+import calendar
 from dateutil import relativedelta
 import requests
 import os
@@ -17,7 +18,7 @@ BIRTHDAY = datetime.datetime(2002, 4, 17)  # Change to your birth date
 
 HEADERS = {'authorization': 'token '+ os.environ['ACCESS_TOKEN']}
 USER_NAME = os.environ['USER_NAME']
-QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0}
+QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'graph_commit_activity': 0, 'loc_query': 0}
 
 
 def daily_readme(birthday):
@@ -73,6 +74,94 @@ def graph_commits(start_date, end_date):
     variables = {'start_date': start_date,'end_date': end_date, 'login': USER_NAME}
     request = simple_request(graph_commits.__name__, query, variables)
     return int(request.json()['data']['user']['contributionsCollection']['contributionCalendar']['totalContributions'])
+
+
+def graph_commit_activity(start_date, end_date):
+    """
+    Uses GitHub's GraphQL v4 API to return contribution-calendar data for commit activity infographics.
+    """
+    query_count('graph_commit_activity')
+    query = '''
+    query($start_date: DateTime!, $end_date: DateTime!, $login: String!) {
+        user(login: $login) {
+            contributionsCollection(from: $start_date, to: $end_date) {
+                contributionCalendar {
+                    weeks {
+                        contributionDays {
+                            contributionCount
+                            date
+                            weekday
+                        }
+                    }
+                }
+            }
+        }
+    }'''
+    variables = {'start_date': start_date, 'end_date': end_date, 'login': USER_NAME}
+    request = simple_request(graph_commit_activity.__name__, query, variables)
+    weeks = request.json()['data']['user']['contributionsCollection']['contributionCalendar']['weeks']
+    return [day for week in weeks for day in week['contributionDays']]
+
+
+def build_commit_activity(days):
+    """
+    Aggregates contribution-calendar data into a sparkline and compact summary stats.
+    """
+    today = datetime.date.today()
+    month_start = datetime.date(today.year, today.month, 1) - relativedelta.relativedelta(months=11)
+    monthly_totals = {}
+    weekday_totals = {index: 0 for index in range(7)}
+    ordered_days = []
+
+    for day in days:
+        day_date = datetime.date.fromisoformat(day['date'])
+        day_count = int(day['contributionCount'])
+        ordered_days.append((day_date, day_count))
+        weekday_totals[int(day['weekday'])] += day_count
+        if day_date >= month_start:
+            month_key = datetime.date(day_date.year, day_date.month, 1)
+            monthly_totals[month_key] = monthly_totals.get(month_key, 0) + day_count
+
+    month_keys = [month_start + relativedelta.relativedelta(months=index) for index in range(12)]
+    month_values = [monthly_totals.get(month_key, 0) for month_key in month_keys]
+
+    current_streak = 0
+    for day_date, day_count in reversed(sorted(ordered_days, key=lambda item: item[0])):
+        if day_date > today:
+            continue
+        if day_count > 0:
+            current_streak += 1
+        else:
+            break
+
+    peak_month_index, peak_month_total = max(enumerate(month_values), key=lambda item: item[1])
+    peak_month = f"{calendar.month_abbr[month_keys[peak_month_index].month]} ({peak_month_total})"
+
+    best_weekday_index, best_weekday_total = max(weekday_totals.items(), key=lambda item: item[1])
+    best_weekday = f"{calendar.day_abbr[best_weekday_index]} ({best_weekday_total})"
+
+    return {
+        'sparkline': build_sparkline(month_values),
+        'current_streak': f"{current_streak} day{format_plural(current_streak)}",
+        'peak_month': peak_month,
+        'best_day': best_weekday
+    }
+
+
+def build_sparkline(values):
+    """
+    Converts a list of integers into an ASCII-only sparkline.
+    """
+    glyphs = '._-:=+*#%@'
+    peak = max(values) if values else 0
+    if peak == 0:
+        return glyphs[0] * len(values)
+
+    sparkline = []
+    for value in values:
+        glyph_index = round((value / peak) * (len(glyphs) - 1))
+        sparkline.append(glyphs[glyph_index])
+    return ''.join(sparkline)
 
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del_loc=0):
@@ -321,7 +410,7 @@ def stars_counter(data):
     return total_stars
 
 
-def svg_overwrite(filename, age_data, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data):
+def svg_overwrite(filename, age_data, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data, commit_activity):
     """
     Parse SVG files and update elements with my age, commits, stars, repositories, and lines written
     """
@@ -335,6 +424,10 @@ def svg_overwrite(filename, age_data, commit_data, star_data, repo_data, contrib
     justify_format(root, 'loc_data', loc_data[2], 9)
     justify_format(root, 'loc_add', loc_data[0])
     justify_format(root, 'loc_del', loc_data[1], 7)
+    find_and_replace(root, 'commit_sparkline', commit_activity['sparkline'])
+    find_and_replace(root, 'commit_streak', commit_activity['current_streak'])
+    find_and_replace(root, 'commit_peak_month', commit_activity['peak_month'])
+    find_and_replace(root, 'commit_best_day', commit_activity['best_day'])
     tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 
@@ -457,6 +550,12 @@ if __name__ == '__main__':
     total_loc, loc_time = perf_counter(loc_query, ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'], 7)
     formatter('LOC (cached)', loc_time) if total_loc[-1] else formatter('LOC (no cache)', loc_time)
     commit_data, commit_time = perf_counter(commit_counter, 7)
+    commit_activity_days, commit_activity_time = perf_counter(
+        graph_commit_activity,
+        (datetime.datetime.utcnow() - relativedelta.relativedelta(months=11)).replace(day=1, hour=0, minute=0, second=0, microsecond=0).isoformat() + 'Z',
+        datetime.datetime.utcnow().replace(hour=23, minute=59, second=59, microsecond=0).isoformat() + 'Z'
+    )
+    commit_activity = build_commit_activity(commit_activity_days)
     star_data, star_time = perf_counter(graph_repos_stars, 'stars', ['OWNER'])
     repo_data, repo_time = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
     contrib_data, contrib_time = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
@@ -473,13 +572,13 @@ if __name__ == '__main__':
 
     for index in range(len(total_loc)-1): total_loc[index] = '{:,}'.format(total_loc[index]) # format added, deleted, and total LOC
 
-    svg_overwrite('dark_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1])
-    svg_overwrite('light_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1])
+    svg_overwrite('dark_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1], commit_activity)
+    svg_overwrite('light_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1], commit_activity)
 
     # move cursor to override 'Calculation times:' with 'Total function time:' and the total function time, then move cursor back
-    print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',
-        '{:<21}'.format('Total function time:'), '{:>11}'.format('%.4f' % (user_time + age_time + loc_time + commit_time + star_time + repo_time + contrib_time)),
-        ' s \033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E', sep='')
+    print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',
+        '{:<21}'.format('Total function time:'), '{:>11}'.format('%.4f' % (user_time + age_time + loc_time + commit_time + commit_activity_time + star_time + repo_time + contrib_time + follower_time)),
+        ' s \033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E', sep='')
 
     print('Total GitHub GraphQL API calls:', '{:>3}'.format(sum(QUERY_COUNT.values())))
     for funct_name, count in QUERY_COUNT.items(): print('{:<28}'.format('   ' + funct_name + ':'), '{:>6}'.format(count))
