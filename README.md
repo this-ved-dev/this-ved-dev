@@ -1,21 +1,92 @@
-# 💫 About Me:
-🔭 I’m currently working on<br>👯 I’m looking to collaborate on<br>🤝 I’m looking for help with<br>🌱 I’m currently learning<br>💬 Ask me about<br>⚡ Fun fact
+<div align="center">
 
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=28&duration=2800&pause=900&color=58A6FF&center=true&vCenter=true&width=900&lines=Hey%2C+I'm+YOUR_NAME;Builder+%7C+Debugger+%7C+Creative+Developer;I+turn+ideas+into+shippable+things" alt="Typing intro banner" />
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/ved-dev) [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@@vedantmisra4444) 
+<p>
+  <img src="https://img.shields.io/badge/Profile-README-111827?style=for-the-badge&logo=github&logoColor=white" alt="Profile README badge" />
+  <img src="https://img.shields.io/badge/Focus-Clean%20Code-1f6feb?style=for-the-badge" alt="Focus badge" />
+  <img src="https://img.shields.io/badge/Vibe-Terminal%20Aesthetic-0d1117?style=for-the-badge" alt="Terminal aesthetic badge" />
+</p>
 
-# 💻 Tech Stack:
-![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) ![Angular.js](https://img.shields.io/badge/angular.js-%23E23237.svg?style=for-the-badge&logo=angularjs&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vue.js](https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white) ![AmazonDynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Web3.js](https://img.shields.io/badge/web3.js-F16822?style=for-the-badge&logo=web3.js&logoColor=white) ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white) ![ElasticSearch](https://img.shields.io/badge/-ElasticSearch-005571?style=for-the-badge&logo=elasticsearch)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=this-ved-dev&theme=radical&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=this-ved-dev&theme=radical&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=this-ved-dev&theme=radical&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
-
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=this-ved-dev&limit=5&theme=radical&combine_all_yearly_contributions=true)
+</div>
 
 ---
-[![](https://visitcount.itsvg.in/api?id=this-ved-dev&icon=2&color=1)](https://visitcount.itsvg.in)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<table>
+<tr>
+<td valign="top" width="52%">
+
+```text
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                         ===-----                                                   
+                                      =========------                                               
+                                   ===============-----                                             
+                                  ==================-----                                           
+                                 ====++++++++++++=====-=--                                          
+                                ==++++++++++++++++=====--------                                     
+                               =++++++++**++*++++=========-----=+++*                                
+                              =+++++++*****+++==============+*%%%%%%#                               
+                              =+++***####**+++==========++#%@@@@@@@@%                               
+                              =+**##%%%%%%%%%##*******#%%##%%%@@@@@                                 
+                              +*#@%%%%%%%%%*==+*###*+=#%%##%#**#                                    
+                              #%@%%%%%%%%##=--=+*#%#+*%%%#+*****                                    
+                              @@@@*===*%%#*=---=++****###*+==+**                                    
+                               @@@==-=++*##+-------===++++=---=+                                    
+                                @@+-=++=-+**=----------=+==++=-                                     
+                                @@@=--====**+--------::-=++++                                       
+                                 @@%+-:---++===--------=++==-                                       
+                                  @@%+===++++====-----+#*+=--                                       
+                                   %%+===+++++++=++++==-==+++                                       
+                                    #+=-==+***+***++++==--::-                                       
+                                    *+=--==+*#####*****++=--=                                       
+                                   ***-----=+*######%%%%%##*                                        
+                                  +***------=++**###%%*#%%*+=++                                     
+                                 +++**=-==---===+++++=--#@%#+++++=                                  
+                              ++++++**+=------===++==---=*%%*++++====                               
+                           ==+++++*+**+=-----=====-=======*%#*++++++====                            
+                        +===++*++++++**=---==========-----=+##*++++++=+===+                         
+                  ******#*++++++++++++++*+======------::::--+#*++++++++++=++                        
+              %#*#******##*+++++++++++++=---------:-::::::--=+#*+++++++++++++                       
+              +**##########*+**++=+++++++=-------:-:::-::::--=***++++++++++*+                       
+            ===++*###%%%%##****##++++++++=----::::::::-:::::--=**++++++++++**+                      
+           ++++++*####***###**++++++++++++--:::-:::::::::::::--+**++++++++++#*                      
+           +++++++*##########+++++++++++++=-::::::::::::::::::-=**++++++++++%#*                     
+          ==+++++++##########*+++++++++++++=-::::::::::::::::::-=**+++++++++%%*                     
+        ===++++++++#%########**++++++++++++=-::::::::::::::::::--**+++++++++%%*+                    
+        ==++++++++**%%#####%#***++++++++++++=-:::::::::::::::::--=#*++++++++#%*+                    
+       ==++++++*****%%#####%#***++++++++++++=-:::::::::::-:-:::--=*#*++++++++%#*+                   
+      ===+++********#%%####%#****++++++++++++=:::::::------:::::--+#*++++++++%#*+                   
+     ====+*++*******#%%###%%#*****+++++++++++=-:::::------::::::--+##*+++++++*%#+                   
+    ===+=++*********#%%#%#%%##*****+++++++++++=----------::::::---=*##*+++++++%#*+                  
+   ====++++***+****##%%%%#%%#*******++++++++++=-----=----:::::----=*##*+++++++%#*+                  
+   =====+++++*******#%%%%%%%#******#*+++++++++=---==---:::::::----=+%##*++++=+##**+                 
+  ====++*+++++**#***#%%%%%%%#********+++++++++=======---:::-------=+#%##*+++=+#%#*+                 
+ ===+++++****+++*##*#%%%%%%##*******#*+++++++++=+==----::::::------+#%##**++++#%#*+                 
+ ====+++=++****+****##%%%%%#***+*****#*+++++++++===---::::---------+*%##**++++*%#**+                
+===++++++++***#***####%%%%%#**+++*****#*+++++++====----:---::-----=+*%%##*+++++%##*+                
+===+++++++++***##**#%%##@@%#*+++++++**##*++++++====------:::-------+*#%##*++++=%%#*+                
+====+++++++++++*####%%#%%%#*+++++++****##*+++++===--------::------==*#@%#*+++==*%#*+=               
+=+===+++*++++**#####@%%%###*++++++++****##+++++===-------:::-------+*#@%##++++++%#*+=               
+======++**+++*****#%@%#%****++++++++****##*+=++++==---------------==*#@%#*++++++##**+               
+=====+==++***++**%%@%#%@%****+++++++****###*+++++==----------------++#@@##++++++*##*++              
++*************####%@%#@%%#****+++++++****####++++==--------::-----==+#@@%#+++++=+##*++              
++=======+++*##%%%%@@%%@@##*****++++++****####*+++=+=---------------=+#%@%*+++=+=+*#**+=             
++====+++++******#@@@%%%%###****++++++******###*++===---------:-----=+#%@%#+++++==+##*+=             
+==+**++=++++=++**##%%%%###*****++++++*********#*+====---------::---=+*%%#*+=++++=+##*++             
+***+++++++==++++**###%@*##******+++++************+===--------:-:---==*%@%*++++===+##**++            
++++++++===++++++***##%%#*#******++++++************++=-----:--:::---==*%@%*+++=+==+*#**+=            
+++++++++=++++++++++*#####*#******+++++**********#*++=--------:::----=*%@%*++====+=+##*++            
+++++++++++==++++==+**######******+++++**********##*+==-------:::----=+#@%*++======+##*++=           
+=++++++++++=====++++*#######*****++++++************+==--------::----=+#@%*+==++===+##**+=           
+ =+++++++++++++++++++*#%#####*****+++++*********#**++===------::----=+#@@*===+====+*#**+=           
+   ++++++++++++++==++*#**#####****++++++************+==--------::---=+*%@#+====+===+***+=           
+    #*+++++++=====++**++*%#####***++++++************+===------------=+*%@%+=+======+***+=           
+     %#++++++++++++**++=***#####*#*+++++************++==-----:-:-----=*#@%++==++====*#              
+     #%#*++++++++***+==+*+#######**++++++************+==-------------=+#%%*++=+======               
+      %%%#+++=++**+=====+*#*#######*++++++***********+==--------::---=+*%@#+=========               
