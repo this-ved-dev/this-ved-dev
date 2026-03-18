@@ -150,9 +150,9 @@ def build_commit_activity(days):
 
 def build_sparkline(values):
     """
-    Converts a list of integers into an ASCII-only sparkline.
+    Converts a list of integers into a unicode block sparkline.
     """
-    glyphs = '._-:=+*#%@'
+    glyphs = '▁▂▃▄▅▆▇█'
     peak = max(values) if values else 0
     if peak == 0:
         return glyphs[0] * len(values)
