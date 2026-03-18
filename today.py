@@ -12,7 +12,7 @@ import hashlib
 #   - USER_NAME: Your GitHub username (e.g. 'VedantMisra')
 #
 # Edit BIRTHDAY below for the "Uptime" age calculation (year, month, day)
-BIRTHDAY = datetime.datetime(2002, 04, 17)  # Change to your birth date
+BIRTHDAY = datetime.datetime(2002, 4, 17)  # Change to your birth date
 # ====================================================
 
 HEADERS = {'authorization': 'token '+ os.environ['ACCESS_TOKEN']}
